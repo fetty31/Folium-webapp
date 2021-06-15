@@ -20,7 +20,8 @@ En esta web app encontraréis 4 páginas: Presentación, Mapa CPC (mapas de folu
 Sobre Nosaltres (referencias).
 
 
-<pre><code>This is a code block.
+<pre><code>pip install -r requirements.txt
+python run.py
 </code></pre>
 
 
