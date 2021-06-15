@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PROJECTE 1 Mapa interactiu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="/static/upc.png"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="/static/carregant_style.css"> <!-- css per el loader -->
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1 {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+</head>
+
+<body onload="carregat()" >
+
+<!-- Barra de navegació -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card w3-left-align w3-large">
+    <a href="/home" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Presentació</a>
+    <a href="/mapa" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Mapa CPC</a>
+    <a href="/mapa_enlinia" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">Mapes en línia</a>
+    <a href="/sobre_nosaltres" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Sobre nosaltres</a>
+  </div>
+
+</div>
+
+
+<header class="w3-container w3-white" style="padding:50px 16px">
+  <h1 class="w3-margin w3-xxlarge">El mapa de l'ETSEIB: <b>{{ ass }}</b></h1>
+  <p class='w3-small' style='padding:2px 16px'>(Recordeu que el procés de càlculs i presentació del mapa en línia pot trigar entre 5 i 10 segons)</p>
+</header>
+
+<div class='w3-container'>
+  <div class="w3-quarter w3-left-align w3-container" style="padding-top: 50px; padding-right: 0px; padding-bottom: 100px; padding-left: 100px" >
+    <form action="/mapa_enlinia" method='POST'>
+        <input type="checkbox" id="ass1" name="ass" value="Mecànica Fonamental">
+        <label for="ass1"> Mecànica Fonamental</label><br>
+        <input type="checkbox" id="ass2" name="ass" value="Àlgebra Lineal">
+        <label for="ass2"> Àlgebra Lineal</label><br>
+        <input type="checkbox" id="ass3" name="ass" value="Química 1">
+        <label for="ass3"> Química 1</label><br>
+        <input type="checkbox" id="ass4" name="ass" value="Fonaments d'Informàtica">
+        <label for="ass4"> Fonaments d'Informàtica</label><br>
+        <input type="checkbox" id="ass5" name="ass" value="Càlcul 1">
+        <label for="ass5"> Càlcul 1</label><br><br>
+        <input type="checkbox" id="ass6" name="ass" value="Expressió Gràfica">
+        <label for="ass6"> Expressió Gràfica</label><br>
+        <input type="checkbox" id="ass7" name="ass" value="Termodinàmica Fonamental">
+        <label for="ass7"> Termodinàmica Fonamental</label><br>
+        <input type="checkbox" id="ass8" name="ass" value="Química 2">
+        <label for="ass8"> Química 2</label><br>
+        <input type="checkbox" id="ass9" name="ass" value="Càlcul 2">
+        <label for="ass9"> Càlcul 2</label><br>
+        <input type="checkbox" id="ass10" name="ass" value="Geometria">
+        <label for="ass10"> Geometria</label><br><br>
+        <input type="submit" value="Veure mapa" onclick='carregant()'>
+      </form>
+  </div>
+
+
+
+  <div id="loader" style="display:none;"> </div>
+
+  {% if resultat %}
+  <div class='w3-threequarter'>
+      <iframe id="frame"
+              name='frame' 
+              src= "/mapa_mix"
+              width="1000"
+              height="600"
+              frameborder="0"
+              style="border:0;"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0">
+      </iframe>
+  </div>
+  {% else %}
+
+  <div class = 'w3-half w3-container w3-center w3-padding-64' id='text-buit' style="display:block;">
+      <p class='w3-padding-64'>Seleccioni una de les assignatures de fase inicial</p> 
+  </div>
+  {% endif %}
+</div>
+
+
+<footer class="w3-container w3-padding-64 w3-center">  
+  <div class="w3-small w3-padding-64">
+    <p class="w3-opacity">Fet per estudiants de l'<a href="https://etseib.upc.edu/ca" target="_blank">ETSEIB</a></p>
+    <img src="/static/upc_etseib.jpg" alt="(Icona ETSEIB i UPC)" style="width:64px;height:38px;" >
+ </div>
+ 
+</footer>
+
+<script>
+  
+  function carregat() {
+    document.getElementById("loader").style.display = "none";
+  }
+  
+  function carregant() {
+    document.getElementById("loader").style.display = "block";
+    document.getElementById("text-buit").style.display = "none";
+    
+  }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>PROJECTE 1 Mapa interactiu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="/static/upc.png"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1 {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+
+<body>
+
+<!-- Barra de navegació -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card w3-left-align w3-large">
+    <a href="/home" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Presentació</a>
+    <a href="/mapa" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">Mapa CPC</a>
+    <a href="/mapa_enlinia" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Mapes en línia</a>
+    <a href="/sobre_nosaltres" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Sobre nosaltres</a>
+  </div>
+
+</div>
+
+
+<header class="w3-container w3-white" style="padding:50px 16px">
+  <h1 class="w3-margin w3-xxlarge">El mapa de l'ETSEIB: <b>{{ ass }}</b></h1>
+</header>
+
+<div class="w3-center w3-container" style="padding:50px 10px">
+  <form id='formulari' action="/mapa_cpc" method='POST'>
+    <input list="assigns" name="ass" id="ass">
+    <datalist id="assigns">
+      <option value="Mecànica Fonamental">
+      <option value="Àlgebra Lineal">
+      <option value="Fonaments d'Informàtica">
+      <option value="Química 1">
+      <option value="Càlcul 1">
+      <option value="Termodinàmica Fonamental">
+      <option value="Expressió Gràfica">
+      <option value="Química 2">
+      <option value="Càlcul 2">
+      <option value="Geometria">
+    </datalist>
+    <input type="submit" value="Veure mapa">
+  </form>
+
+</div>
+
+<div class="w3-center">
+  {% if resultat %}
+    <iframe id="FoliumMap" 
+            src= "{{ resultat }}"
+            width="1000"
+            height="600"
+            frameborder="0"
+            style="border:0;"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0">
+    </iframe>
+  {% else %}
+    <p>Introdueixi una de les assignatures de fase inicial</p>
+  {% endif %}
+</div>
+
+
+<div class="w3-center">
+  <h2><b>GRÀFIC PER ZONES:</b></h2>
+  <p>Selecciona la zona que vols veure: <b id="provincia"> </b></p>
+  <button class="w3-btn w3-black w3-round-xlarge"onclick="myFunction()">BCN Ciutat </button>
+  <button class="w3-btn w3-black w3-round-xlarge"onclick="myFunction1()">BCN Sud</button>
+  <button class="w3-btn w3-black w3-round-xlarge"onclick="myFunction2()">BCN Nord</button>
+  <button class="w3-btn w3-black w3-round-xlarge"onclick="myFunction3()">Tarragona</button>
+  <button class="w3-btn w3-black w3-round-xlarge"onclick="myFunction4()">Lleida</button>
+  <button class="w3-btn w3-black w3-round-xlarge"onclick="myFunction5()">Girona</button>    
+</div>
+
+<div class='w3-center'>
+  <iframe id='frame'
+            src=""
+            width="1000"
+            height="600"
+            frameborder="0"
+            style="border:0"
+            allowfullscreen=""
+            aria-hidden="false"
+            asign='center'
+            tabindex="0">
+  </iframe>
+</div>
+
+
+<footer class="w3-container w3-padding-64 w3-center">  
+  <div class="w3-small w3-padding-64">
+    <p class="w3-opacity">Fet per estudiants de l'<a href="https://etseib.upc.edu/ca" target="_blank">ETSEIB</a></p>
+    <img src="/static/upc_etseib.jpg" alt="(Icona ETSEIB i UPC)" style="width:64px;height:38px;" >
+ </div>
+ 
+</footer>
+
+
+
+<script>
+  function myFunction() {
+    document.getElementById("frame").src = '{{m[0]}}';
+    document.getElementById("provincia").innerHTML = 'BCN Ciutat';
+  }
+  function myFunction1() {
+    document.getElementById("frame").src = '{{m[1]}}';
+    document.getElementById("provincia").innerHTML = 'BCN Sud';
+  }
+  function myFunction2() {
+    document.getElementById("frame").src = '{{m[2]}}';
+    document.getElementById("provincia").innerHTML = 'BCN Nord';
+  }
+  function myFunction3() {
+    document.getElementById("frame").src = '{{m[3]}}';
+    document.getElementById("provincia").innerHTML = 'Tarragona';
+  }
+  function myFunction4() {
+    document.getElementById("frame").src = '{{m[4]}}';
+    document.getElementById("provincia").innerHTML = 'Lleida';
+  }
+  function myFunction5() {
+    document.getElementById("frame").src = '{{m[5]}}';
+    document.getElementById("provincia").innerHTML = 'Girona';
+  }
+  </script>
+
+</body>
+</html>
+

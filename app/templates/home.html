@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>PROJECTE 1 Mapa interactiu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="/static/upc.png"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1 {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+
+<body>
+
+<!-- Barra de navegació -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card w3-left-align w3-large">
+    <a href="/home" class="w3-bar-item w3-button w3-padding-large w3-white">Presentació</a>
+    <a href="/mapa" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Mapa CPC</a>
+    <a href="/mapa_enlinia" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Mapes en línia</a>
+    <a href="/sobre_nosaltres" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Sobre nosaltres</a>
+  </div>
+
+</div>
+
+
+<header class="w3-container w3-white w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">El mapa de l'ETSEIB</h1>
+  <p class="w3-xlarge">Mapa interactiu</p>
+  <a href='/mapa' class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Començar</a>
+</header>
+
+
+<div class="w3-container">
+  <div style='padding:10px 250px'>
+    <div class="w3-third" style="width:50%">
+      <h1>Presentació</h1>
+      <h5>Benvinguts al nostre projecte El mapa de l'ETSEIB. En aquest projecte s'han tingut en compte les dades acadèmiques proporcionades per l'escola per tal de presentar de manera dinàmica i intuïtiva els resultats
+         obtinguts pels estudiants segons el lloc geogràfic de Catalunya del qual provenen.
+      </h5>
+
+      <p class="w3-text-grey">En ell hi trobareu diferents mapes on hi ha representades les mitjanes de les notes dels estudiants de l'ETSEIB segons el Codi Postal del Centre de secundària (CPC) del que provenen al entrar a l'escola. Les dades que s'han tingut en compte són
+        les notes d'aquells estudiants que han aprovat tota la fase inicial, per tant en aquest projecte presentem les dades segons les 10 assignatures de primer any així com també permetem la combinació de les dades entre assignatures.
+        </p>
+    </div>
+
+    
+
+    <div class="w3-twothird w3-container" style="width:45%">
+      <img src="/static/choropleth-map.png" alt="Imatge del mapa" style="width:645px;height:387px;" >
+    </div>
+  </div>
+</div>
+
+
+
+<footer class="w3-container w3-padding-64 w3-center">  
+  <div class="w3-small w3-padding-64">
+    <p class="w3-opacity">Fet per estudiants de l'<a href="https://etseib.upc.edu/ca" title="anar a la pàgina de l'ETSEIB" target="_blank">ETSEIB</a></p>
+    <img src="/static/upc_etseib.jpg" alt="(Icona ETSEIB i UPC)" style="width:64px;height:38px;" >
+ </div>
+ 
+</footer>
+
+
+</body>
+</html>
